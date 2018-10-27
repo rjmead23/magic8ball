@@ -1,0 +1,183 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Magic 8 Ball</title>
+
+    <style>
+.shakeimage{
+position:relative
+}
+</style>
+<script language="JavaScript1.2">
+
+/*
+Shake image script (onMouseover)-
+(c) Dynamic Drive (www.dynamicdrive.com)
+*/
+
+//configure shake degree (where larger # equals greater shake)
+var rector=3
+
+///////DONE EDITTING///////////
+var stopit=0
+var a=1
+
+function init(which){
+stopit=0
+shake=which
+shake.style.left=0
+shake.style.top=0
+}
+
+function rattleimage(){
+if ((!document.all&&!document.getElementById)||stopit==1)
+return
+if (a==1){
+shake.style.top=parseInt(shake.style.top)+rector+"px"
+}
+else if (a==2){
+shake.style.left=parseInt(shake.style.left)+rector+"px"
+}
+else if (a==3){
+shake.style.top=parseInt(shake.style.top)-rector+"px"
+}
+else{
+shake.style.left=parseInt(shake.style.left)-rector+"px"
+}
+if (a<4)
+a++
+else
+a=1
+setTimeout("rattleimage()",50)
+}
+
+function stoprattle(which){
+stopit=1
+which.style.left=0
+which.style.top=0
+}
+
+</script>
+
+  </head>
+  <body>
+    <container>
+    <div id="magicEightBall" style="text-align: center; margin-top: 25px">
+      <img src="images/MAGIC8BALL.gif" class="shakeimage" onMouseover="init(this);rattleimage()" onMouseout="stoprattle(this);top.focus()" onClick="top.focus()">
+    </div>
+  </container>
+
+    <script>
+
+    // Create Magic Eight Ball
+    var magicEightBall = document.getElementById("magicEightBall");
+    var setStart = 0;
+    //var question = prompt("Enter a question for the Magic 8 Ball!");
+
+    magicEightBall.addEventListener("click", askMagicEightBall);
+
+    function askMagicEightBall() {
+
+      if (setStart) {
+        magicEightBall.innerHTML = "<img src='images/MAGIC8BALL.gif' class='shakeimage' onMouseover='init(this);rattleimage()' onMouseout='stoprattle(this);top.focus()' onClick='top.focus()'>";
+
+        setStart = 0;
+
+      } else {
+        var randomNumber = Math.floor(Math.random() * 20)
+        //randomNumber = 0;
+
+        switch(randomNumber) {
+
+          case 0:
+            magicEightBall.innerHTML = "<img src='images/ITISCERTAIN.gif'>"
+            setStart = 1;
+            break;
+          case 1:
+            magicEightBall.innerHTML = "<img src='images/ITISDECIDEDLYSO.gif'>"
+            setStart = 1;
+            break;
+          case 2:
+            magicEightBall.innerHTML = "<img src='images/WITHOUTADOUBT.gif'>"
+            setStart = 1;
+            break;
+          case 3:
+            magicEightBall.innerHTML = "<img src='images/YESDEFINITELY.gif'>"
+            setStart = 1;
+            break;
+          case 4:
+            magicEightBall.innerHTML = "<img src='images/YOUMAYRELYONIT.gif'>"
+            setStart = 1;
+            break;
+          case 5:
+            magicEightBall.innerHTML = "<img src='images/ASISEEITYES.gif'>"
+            setStart = 1;
+            break;
+          case 6:
+            magicEightBall.innerHTML = "<img src='images/MOSTLIKELY.gif'>"
+            setStart = 1;
+            break;
+          case 7:
+            magicEightBall.innerHTML = "<img src='images/OUTLOOKGOOK.gif'>"
+            setStart = 1;
+            break;
+          case 8:
+            magicEightBall.innerHTML = "<img src='images/YES.gif'>"
+            setStart = 1;
+            break;
+          case 9:
+            magicEightBall.innerHTML = "<img src='images/SIGNSPOINTTOYES.gif'>"
+            setStart = 1;
+            break;
+          case 10:
+            magicEightBall.innerHTML = "<img src='images/DONTCOUNTONIT.gif'>"
+            setStart = 1;
+            break;
+          case 11:
+            magicEightBall.innerHTML = "<img src='images/MYREPLYISNO.gif'>"
+            setStart = 1;
+            break;
+          case 12:
+            magicEightBall.innerHTML = "<img src='images/MYSOURCESSAYNO.gif'>"
+            setStart = 1;
+            break;
+          case 13:
+            magicEightBall.innerHTML = "<img src='images/OUTLOOKNOTSOGOOD.gif'>"
+            setStart = 1;
+            break;
+          case 14:
+            magicEightBall.innerHTML = "<img src='images/VERYDOUBTFUL.gif'>"
+            setStart = 1;
+            break;
+          case 15:
+            magicEightBall.innerHTML = "<img src='images/REPLYHAZY.gif'>"
+            setStart = 1;
+            break;
+          case 16:
+            magicEightBall.innerHTML = "<img src='images/ASKAGAINLATER.gif'>"
+            setStart = 1;
+            break;
+          case 17:
+            magicEightBall.innerHTML = "<img src='images/BETTERNOTTELL.gif'>"
+            setStart = 1;
+            break;
+          case 18:
+            magicEightBall.innerHTML = "<img src='images/CANNOTPREDICTNOW.gif'>"
+            setStart = 1;
+            break;
+          case 19:
+            magicEightBall.innerHTML = "<img src='images/CONCENTRATE.gif'>"
+            setStart = 1;
+            break;
+          default:
+            magicResponse = "Magic 8 ball needs a nap!";
+            setStart = 1;
+        }
+      }
+    }
+
+    </script>
+
+  </body>
+</html>
